@@ -1,0 +1,379 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* 自动内减模式:以后盒子大小设定完毕后,盒子不会因为内容多被撑大 */
+}
+
+li {
+    list-style: none;
+    /* 去掉表前面的小黑点 */
+}
+
+a {
+    text-decoration: none;
+}
+
+.clearfix::before,
+.clearfix::after {
+    content: "";
+    display: table;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+body {
+    background-color: #f3f5f7;
+}
+
+/* 先后: 浮动/display> 盒子> 文字样式 */
+/* 版心:wrapper */
+.wrapper {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.header{
+    height: 42px;
+    /* background-color: pink; */
+    margin: 30px auto;
+    /* 30 表上下, 左右不能写0,因为header比wrapper更精确选中header,写0的话会影响之前版心居中margin auto的作用 */
+}
+h1{
+    float: left;
+}
+
+.nav{
+    float: left;
+    margin-left: 70px;
+    /* background-color: grey; */
+    /* 老师先设个nav的背景框,比较好观察 */
+    height: 42px;
+}
+
+.nav li{   
+    float: left;
+    /* 往左边浮动,是为了让li不换行,而且全部靠左排列 */
+    margin-right: 26px;
+    /* 虽然搜索标签之间的距离是35.但是因为要规划首页下面的hover底线.其宽度是字左右各加9像素. 所以35-9(每个搜索标签右边的空格)=26 */
+}
+.nav li a{
+    height: 42px;
+    line-height: 42px;
+    /* 让字垂直对齐 */
+    padding: 0 9px;
+    /* padding左右各加9,这样可以让底下蓝色的(hover) border 比字的内容左右各宽9像素  */
+    display: inline-block;
+    /* block也可以 */
+    color: black;
+    /* border-bottom: 2px solid #00a4ff; */
+    /* 老师现在这把底部border写出来,然后再把它复制到hover底下 */
+}
+
+.nav li a:hover{
+    border-bottom: 2px solid #00a4ff;
+}
+
+.search{   
+    float: left;
+    margin-left: 59px;
+    width: 412px;
+    height: 40px;
+    border: 1px solid #00a4ff;
+}
+
+.search input{
+    float: left;
+    padding-left: 20px;
+    /* 因为左右加一起的宽度尺寸要小于等于410 */
+    width: 360px;
+    height: 38px;
+    border: 0;
+
+}
+/* placeholder的样式,注意有俩冒号 */
+.search input::placeholder{
+    font-size: 14px;
+    color: #bfbfbf;
+}
+
+.search button{
+    float: left;
+    width:50px;
+    height: 40px;
+    background-image: url(../images/btn.png);
+    border:0;
+}
+
+.user{
+    float: right;
+    margin-right: 35px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 14px;
+    color: #666565;
+}
+
+.user img{
+    vertical-align: middle;
+    /* 调节图片垂直对齐方式 */
+    margin-right: 3px;
+}
+
+.banner{
+    height: 420px;
+    background-color: #1c036c; 
+}
+
+.banner .wrapper{
+    height: 420px;
+    background-image: url(../images/banner2.png);
+}
+
+.banner .left{
+    float: left;
+    padding: 0 20px;
+    width: 190px;
+    height: 420px;
+    background-color: rgba(0,0,0,0.3);
+    /* 0.3表示透明度,可以做出半透明的小黑框 */
+
+    line-height: 44px;
+    /* 行高属于控制文字的属性,能继承 */
+    
+}
+
+.banner .left a{
+    color: #fff;
+    font-size: 14px;
+
+}
+
+
+.banner .left span{
+float: right;
+}
+
+.banner .left a:hover{
+    color:#00b4ff ;
+}
+
+.banner .right{
+    float: right;
+    margin-top: 50px;
+    width: 228px;
+    height: 300px;
+    background-color: #fff;
+}
+
+.banner .right h2{
+    height: 42px;
+    /* h2 是块标签,不用给宽度.默认就和爹banner right一样宽 */
+    background-color: #9bceea;
+    text-align: center;
+    line-height: 42px;
+    font-size: 18px;
+    color: #fff;
+}
+
+.banner .right .content{
+    padding: 0 18px
+}
+
+.banner .right .content dl{
+    padding: 12px 0;
+    border-bottom: 2px solid #e5e5e5;
+
+}
+
+.banner .right .content dt{
+    font-size: 16px;
+    color: #4e4e4e;
+}
+
+.banner .right .content dd{
+   font-size: 14px;
+   color: #4e4e4e; 
+}
+
+.banner .right .all-course{
+    display: block;
+    /* 因为a链接是行内,宽高不起作用,所以需要改成块或行内块 */
+    margin: 10px auto 0;
+    /* margin 左右用auto居中, 下方是0因为这个框剩余的高度差不多,不用特地设置 */
+    width: 200px;
+    height: 40px;
+    border: 1px solid #00a4ff;
+    font-size: 16px;
+    color: #00a4ff;
+    font-weight: 700;
+    text-align: center;
+    line-height: 40px;
+}
+
+/* 精品推荐 */
+.goods{
+    height: 60px;
+    background-color: #fff  ;
+    margin-top: 8px;
+    padding-left: 34px;
+    padding-right: 26px;
+    /* 阴影 */
+    box-shadow: 0px 2px 3px 0px
+    rgba(118, 118, 118, 0.2);
+
+    line-height: 60px;
+}
+
+.goods h2{
+    float: left;
+    font-size: 16px;
+    color: #00a4ff;
+    font-weight: 400;
+}
+
+.goods ul{
+    float: left;
+    margin-left: 30px;
+    
+}
+
+.goods ul li{
+    float: left;
+}
+
+.goods li a{
+    border-left: 1px solid #bfbfbf;
+    /* 加在a 就可以自动生成6条小线线,而且线的高度和字相等. 相反的,如果加在ul li那里只会有一条线线,而且很长,是整个li的高度 */
+    padding: 0 30px;
+    color:#050505;
+    font-size: 16px;
+}
+
+.goods .interests{
+    float: right;
+    font-size: 14px;
+    color: #00a4ff;
+}
+
+/* 精品课程 */
+.box{
+    margin-top: 35px;
+}
+
+.box .title{
+    height: 40px;
+    /* background-color: pink; */
+    padding-right: 31px; 
+}
+
+.box .title h2{
+    float: left;
+    font-size: 20px;
+    color: #494949;
+    font-weight: 400;
+    line-height: 40px;
+}
+
+.box .title a{
+    float: right;
+    font-size: 12px;
+    color: #a5a5a5;
+    line-height: 40px;
+}
+
+.box .content li{
+    float: left;
+    margin-right: 15px;
+    /* 但是第五个和第十个盒子右边没有margin,所以下面要再加一行,第五个孩子nth-child(5n) */
+    margin-bottom: 15px;
+
+    width: 228px;
+    height: 270px;background-color: #fff;
+    box-shadow: 0px 2px 5px 0px 
+		rgba(118, 118, 118, 0.5);
+
+}
+
+.box .content li:nth-child(5n){
+    margin-right: 0;
+}
+
+.box .content li h5{
+    padding: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400px;
+    color: #050505
+}
+
+.box .content li p{
+    padding: 0 20px;
+    font-size: 12px;
+    color: #777777;
+}
+
+.box .content li span{
+    color: #ff7c2d;
+}
+
+/* 版权 */
+.footer{
+    margin-top: 40px;
+    padding: 30px;
+    height:417px ;
+    background-color: #fff;
+}
+
+.footer .left{
+    float: left;
+    margin-left: 19px;
+}
+
+.footer .left .logo{
+    margin-bottom: 26px;
+}
+
+.footer .left p{
+    font-size: 12px;
+    color: #666;
+}
+
+.footer .left button{
+    margin-top: 16px;
+    width: 120px;
+	height: 36px;
+	border: solid 1px #00a4ff;  
+    background-color: #fff;
+}
+
+.footer .left a{
+    color: #00a4ff;
+    font-size: 16px;
+}
+
+
+.footer .right{
+    float: right;
+}
+
+.footer .right dl{
+    float: left;
+    margin-left: 120px;
+    
+}
+
+.footer .right dt{
+    margin-bottom:12px ;
+    color: #333;
+    font-size: 16px;
+}
+
+.footer .right dd a{
+    color: #333;
+    font-size:12px ;
+    line-height: 21px;
+}
+
